@@ -6,7 +6,7 @@
 %
 %
 % ----------------------------------------------------------------------
-% WARNING: 
+% WARNING:
 %
 %   This template has not endorced by OGS or any other official entity.
 %   The official formatting guide can be obtained from OGS.
@@ -15,9 +15,9 @@
 %
 %   No guaranty is made that this LaTeX class conforms to the official UCSD guidelines.
 %   Make sure that you check the final document against the Formatting Manual.
-%  
-%   That being said, this class has been routinely used for successful 
-%   publication of doctoral theses.  
+%
+%   That being said, this class has been routinely used for successful
+%   publication of doctoral theses.
 %
 %   The ucsd.cls class files are only valid for doctoral dissertations.
 %
@@ -33,7 +33,7 @@
 %     pdflatex template
 %
 %
-%   To get started please read the comments in this template file 
+%   To get started please read the comments in this template file
 %   and make changes as appropriate.
 %
 %   If you successfully submit a thesis with this package please let us
@@ -67,20 +67,20 @@
 %
 %   * ucsd.cls    -- Class file
 %   * uct10.clo   -- Configuration files for font sizes 10pt, 11pt, 12pt
-%     uct11.clo                            
+%     uct11.clo
 %     uct12.clo
 %
 % ----------------------------------------------------------------------
 
 
 
-% Setup the documentclass 
+% Setup the documentclass
 % default options: 12pt, oneside, final
 %
 % fonts: 10pt, 11pt, 12pt -- are valid for UCSD dissertations.
-% sides: oneside, twoside -- note that two-sided theses are not accepted 
+% sides: oneside, twoside -- note that two-sided theses are not accepted
 %                            by OGS.
-% mode: draft, final      -- draft mode switches to single spacing, 
+% mode: draft, final      -- draft mode switches to single spacing,
 %                            removes hyperlinks, and places a black box
 %                            at every overfull hbox (check these before
 %                            submission).
@@ -94,25 +94,29 @@
 
 
 
-% Include all packages you need here.  
+% Include all packages you need here.
 % Some standard options are suggested below.
 %
-% See the project wiki for information on how to use 
+% See the project wiki for information on how to use
 % these packages. Other useful packages are also listed there.
 %
 %   http://code.google.com/p/ucsd-thesis/wiki/GettingStarted
 
 
 
-%% AMS PACKAGES - Chances are you will want some or all 
+%% AMS PACKAGES - Chances are you will want some or all
 %    of these if writing a dissertation that includes equations.
 %  \usepackage{amsmath, amscd, amssymb, amsthm}
 
-%% GRAPHICX - This is the standard package for 
+%% GRAPHICX - This is the standard package for
 %    including graphics for latex/pdflatex.
 \usepackage{scrextend}
 \usepackage{pslatex}
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{url}
+\usepackage{makecell}
 
 %% CAPTION
 % This overrides some of the ugliness in ucsd.cls and
@@ -139,12 +143,12 @@
 % \usepackage{mathptmx}
 
 %% INDEX
-%   Uncomment the following two lines to create an index: 
+%   Uncomment the following two lines to create an index:
 % \usepackage{makeidx}
 % \makeindex
 %   You will need to uncomment the \printindex line near the
 %   bibliography to display the index.  Use the command
-% \index{keyword} 
+% \index{keyword}
 %   within the text to create an entry in the index for keyword.
 %   To compile a LaTeX document with an index the 'makeindex'
 %   command will need to be run.  See the wiki for more details.
@@ -158,14 +162,15 @@
 %   See: http://www.tex.ac.uk/cgi-bin/texfaq2html?label=hyperdupdest
 %   Note: This may not work correctly with all DVI viewers (i.e. Yap breaks).
 %   NOTE: hyperref will NOT work in draft mode, as noted above.
-% \usepackage[colorlinks=true, pdfstartview=FitV, 
-%             linkcolor=black, citecolor=black, 
+
+% \usepackage[colorlinks=true, pdfstartview=FitV,
+%             linkcolor=black, citecolor=black,
 %             urlcolor=black, plainpages=false,
 %             pdfpagelabels]{hyperref}
-% \hypersetup{ pdfauthor = {Your Name Here}, 
-%              pdftitle = {The Title of The Dissertation}, 
-%              pdfkeywords = {Keywords for Searching}, 
-%              pdfcreator = {pdfLaTeX with hyperref package}, 
+% \hypersetup{ pdfauthor = {Your Name Here},
+%              pdftitle = {The Title of The Dissertation},
+%              pdfkeywords = {Keywords for Searching},
+%              pdfcreator = {pdfLaTeX with hyperref package},
 %              pdfproducer = {pdfLaTeX} }
 % \urlstyle{same}
 % \usepackage{bookmark}
@@ -199,16 +204,14 @@
 %  All of the front matter.
 %  This includes the title, degree, dedication, vita, abstract, etc..
 %  Modify the file template_frontmatter.tex to change these pages.
-\include{template_frontmatter}
-
-
+\include{frontmatter}
 
 
 
 %% DISSERTATION
 
 % A common strategy here is to include files for each of the chapters. I.e.,
-% Place the chapters is separate files: 
+% Place the chapters is separate files:
 %   chapter1.tex, chapter2.tex
 % Then use the commands:
 %   \include{chapter1}
@@ -216,89 +219,33 @@
 %
 % Of course, if you prefer, you can just start with
 %   \chapter{My First Chapter Name}
-% and start typing away.  
-\chapter{Just a Test}
-This is only a test.
-\section{A section}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla odio
-sem, bibendum ut, aliquam ac, facilisis id, tellus. Nam posuere pede
-sit amet ipsum. Etiam dolor. In sodales eros quis pede.  Quisque sed
-nulla et ligula vulputate lacinia. In venenatis, ligula id semper
-feugiat, ligula odio adipiscing libero, eget mollis nunc erat id orci.
-Nullam ante dolor, rutrum eget, vestibulum euismod, pulvinar at, nibh.
-In sapien. Quisque ut arcu. Suspendisse potenti. Cras consequat cursus
-nulla.
+% and start typing away.
 
-\subsection{A Figure Example}
-\label{ssec:figure_example}
-
-This subsection shows a sample figure.
-
-\begin{figure}[h] 
-  \centering
-  \includegraphics[width=0.5\textwidth]{sandiego}
-  \caption[A picture of San Diego. Short figure caption must be \protect{$< 4$} lines in the list of figures]
-{A picture of San Diego.  Short figure caption must be \protect{$< 4$} lines in the list of figures and match the start of the main figure caption verbatim. Note that figures must be on their own line (no neighboring text) and captions must be single-spaced and appear \protect\textit{below} the figure.  Captions can be as long as you want, but if they are longer than 4 lines in the list of figures, you must provide a short figure caption.\index{SanDiego}}
-  \label{fig:sandiego}
-\end{figure}
-
-\subsection{A Table Example}
-
-While in Section \ref{ssec:figure_example} Figure \ref{fig:sandiego} we had a majestic figure, here we provide a crazy table example.
-
-
-%%%% TABLE 1 %%%%
-\vspace{0.25in}
-\begin{table}[!ht]
-\caption[A table of when I get hungry.  Short table caption must be \protect{$< 4$} lines in the list of tables]{A table of when I get hungry. Short table caption must be \protect{$< 4$} lines in the list of tables and match the start of the main table caption verbatim.  Note that tables must be on their own line (no neighboring text) and captions must be single-spaced and appear \protect\textit{above} the table.  Captions can be as long as you want, but if they are longer than 4 lines in the list of figures, you must provide a short figure caption.}
-
-\vspace{-0.25in}
-\begin{center}
-\begin{tabular}{|p{1in}|p{2in}|p{3in}|}
-
-\hline
-Time of day & Hunger Level & Preferred Food \\
-
-\hline
-8am & high & IHOP (French Toast) \\
-
-\hline
-noon & medium & Croutons (Tomato Basil Soup \& Granny Smith Chicken Salad) \\
-
-\hline
-5pm & high & Bombay Coast (Saag Paneer) or Hi Thai (Pad See Ew) \\
-
-\hline
-8pm & medium & Yogurt World (froyo!) \\
-
-\hline
-\end{tabular}
-\end{center}
-\label{tab:analysis3}
-\end{table}
-
+\chapter{Methods for phylogenetic analysis of microbiome data}
+\include{ch1_phylogeny_review}
+\chapter{Uncovering the horseshoe effect in microbial analyses}
+\include{ch2_horseshoe}
+\chapter{Balance trees reveal microbial niche differentiation}
+\include{ch3_balances}
 
 
 %% APPENDIX
-\appendix
-\chapter{Final notes}
-What to do about things \cite{Martin_1983}.  What did he say \cite{Rilling_Insel_1999}.
-  Remove me in case of abdominal pain.
+
 
 
 
 %% END MATTER
 % \printindex %% Uncomment to display the index
-% \nocite{}  %% Put any references that you want to include in the bib 
+% \nocite{}  %% Put any references that you want to include in the bib
 %               but haven't cited in the braces.
-\bibliographystyle{alpha}  %% This is just my personal favorite style. 
-%                              There are many others.
 %\setlength{\bibleftmargin}{0.25in}  % indent each item
 %\setlength{\bibindent}{-\bibleftmargin}  % unindent the first line
 %\def\baselinestretch{1.0}  % force single spacing
 %\setlength{\bibitemsep}{0.16in}  % add extra space between items
-\bibliography{template}  %% This looks for the bibliography in template.bib 
+\bibliography{template}  %% This looks for the bibliography in template.bib
 %                          which should be formatted as a bibtex file.
 %                          and needs to be separately compiled into a bbl file.
+\bibliographystyle{plain}
+
 \end{document}
 
