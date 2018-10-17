@@ -92,8 +92,6 @@
 %                              1 Title of Chapter
 \documentclass[12pt,chapterheads]{ucsd}
 
-
-
 % Include all packages you need here.
 % Some standard options are suggested below.
 %
@@ -114,9 +112,11 @@
 \usepackage{pslatex}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{float}
 \usepackage{url}
 \usepackage{makecell}
+\usepackage{xcolor}
 
 %% CAPTION
 % This overrides some of the ugliness in ucsd.cls and
@@ -195,8 +195,8 @@
 \usepackage{array}  % Enables "m" tabular environment http://ctan.org/pkg/array
 \usepackage{booktabs}  % Enables \toprule  http://ctan.org/pkg/array
 
-
-
+\usepackage{amsmath,amsfonts,amsthm,bm}
+\usepackage{gensymb}
 \begin{document}
 
 %% FRONT MATTER
@@ -223,16 +223,19 @@
 
 \chapter{Methods for phylogenetic analysis of microbiome data}
 \include{ch1_phylogeny_review}
-\chapter{Uncovering the horseshoe effect in microbial analyses}
-\include{ch2_horseshoe}
-\chapter{Balance trees reveal microbial niche differentiation}
-\include{ch3_balances}
+%% \chapter{Uncovering the horseshoe effect in microbial analyses}
+%% \include{ch2_horseshoe}
+%% \chapter{Balance trees reveal microbial niche differentiation}
+%% \include{ch3_balances}
+%% \chapter{Establishing microbial measurement standards with reference frames}
+%% \include{ch4_ranks}
 
 
 %% APPENDIX
 
-
-
+\appendix
+\include{appendixa}
+\include{appendixb}
 
 %% END MATTER
 % \printindex %% Uncomment to display the index
