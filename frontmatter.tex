@@ -1,0 +1,288 @@
+
+\title{Making sense of microbial populations from representative samples}
+
+\author{James T. Morton}
+\degreeyear{2018}
+
+% Master's Degree theses will NOT be formatted properly with this file.
+\degreetitle{Doctor of Philosophy}
+
+\field{Computer Science and Engineering}
+
+\chair{Rob Knight}
+% Uncomment the next line iff you have a Co-Chair
+% \cochair{Professor Cochair Semimaster}
+%
+% Or, uncomment the next line iff you have two equal Co-Chairs.
+%\cochairs{Professor Chair Masterish}{Professor Chair Masterish}
+
+%  The rest of the committee members  must be alphabetized by last name.
+\othermembers{
+Professor Pieter Dorrestein\\
+Professor Yoav Freund\\
+Professor Siavash Mirarab\\
+Professor Rachel Dutton
+}
+\numberofmembers{5} % |chair| + |cochair| + |othermembers|
+
+
+%% START THE FRONTMATTER
+%
+\begin{frontmatter}
+
+%% TITLE PAGES
+%
+%  This command generates the title, copyright, and signature pages.
+%
+\makefrontmatter
+
+%% DEDICATION
+%
+%  You have three choices here:
+%    1. Use the ``dedication'' environment.
+%       Put in the text you want, and everything will be formated for
+%       you. You'll get a perfectly respectable dedication page.
+%
+%
+%    2. Use the ``mydedication'' environment.  If you don't like the
+%       formatting of option 1, use this environment and format things
+%       however you wish.
+%
+%    3. If you don't want a dedication, it's not required.
+%
+%
+\begin{dedication}
+  To my friends and family who paved the road and lit the journey.
+\end{dedication}
+
+
+% \begin{mydedication} % You are responsible for formatting here.
+%   \vspace{1in}
+%   \begin{flushleft}
+% 	To me.
+%   \end{flushleft}
+%
+%   \vspace{2in}
+%   \begin{center}
+% 	And you.
+%   \end{center}
+%
+%   \vspace{2in}
+%   \begin{flushright}
+% 	Which equals us.
+%   \end{flushright}
+% \end{mydedication}
+
+
+
+%% EPIGRAPH
+%
+%  The same choices that applied to the dedication apply here.
+%
+\begin{epigraph} % The style file will position the text for you.
+  \emph{The `paradox' is only a conflict between reality and your feeling of what reality `ought to be'}\\
+  ---Richard Feynman
+\end{epigraph}
+
+% \begin{myepigraph} % You position the text yourself.
+%   \vfil
+%   \begin{center}
+%     {\bf Think! It ain't illegal yet.}
+%
+% 	\emph{---George Clinton}
+%   \end{center}
+% \end{myepigraph}
+
+
+%% SETUP THE TABLE OF CONTENTS
+%
+\tableofcontents
+
+%%
+%% This block was needed to re-format the title of the glossary to match the
+%% headings of the list of figures and list of tables.
+%%
+%% start hack:
+\renewcommand{\glossarysection}[2][]{
+\newpage
+\noindent
+\centerline{LIST OF ABBREVIATIONS}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+}
+%% end hack
+\printglossary[title=List of Abbreviations,toctitle=List of Abbreviations,nonumberlist ]
+
+\listoffigures  % Comment if you don't have any figures
+\listoftables   % Comment if you don't have any tables
+
+
+%% ACKNOWLEDGEMENTS
+%
+%  While technically optional, you probably have someone to thank.
+%  Also, a paragraph acknowledging all coauthors and publishers (if
+%  you have any) is required in the acknowledgements page and as the
+%  last paragraph of text at the end of each respective chapter. See
+%  the OGS Formatting Manual for more information.
+%
+\begin{acknowledgements}
+  First, I would like to acknowledge Rob Knight, for his guidance that enabled me to
+  grow as a person as well as a scientist.  This work was largely enabled by him and
+  I am greatly thankful for his support.
+
+  I would like to thank my committee members Pieter Dorrestein, Yoav Freund,
+  Siavash Mirarab and Rachel Dutton not only for providing feedback for this
+  thesis, but also for fostering years of collaborative science.
+
+  This work couldn't have been done with out the strong support of the members of the
+  Knight lab. Many thanks to the individuals responsible for the finances, logistics,
+  and computational hardware maintainence that ultimately facilitated the sharing
+  of ideas across public venues, namely Ulla Westerman, Jerry Kennedy, Gail Ackermann,
+  Jeff DeReus, Michiko Souza, and Sarah Adams.  I would also like to acknowledge the
+  multiple individuals that served as mentors, namely Jon Sanders, Daniel McDonald,
+  Antonio Gonzalez, Yoshiki Vazquez-baeza, Zhenjiang Xu, Amnon Amir, Albert Barberán,
+  Luke Thompson, Justine Debelius, Sejin Song, Jessica Metcalf, Greg Humphrey and Rob Quinn.
+  My fellow peers brought the excitment into the lab, making my PhD experience
+  thoroughly enjoyable, in particular Lisa Marotz, Qiyun Zhu, Stefan Janssen, Georg Loss,
+  Anupriya Tripathi, Alison Vrbanac, Serene Lingjing Jiang, Antony Pearson,
+  Peter Edge, Benjamin Pullman, Mingxun Wang, Richardo Silva, Alexander Aksenov,
+  Louis-Felix Nothias-Scaglia and Brooke Anderson. Among the many collaborators,
+  colleagues and mentors outside of UCSD responsible for contributing to
+  this body of work, I would especially like to acknowledge Anna Edlund, Alex Washburne,
+  Justin Silverman, John Karro, Iddo Friedberg, Manuel Lladser, Christopher Lowry,
+  Noah Fierer, Benjamin Langmead, Jeff Leek and Susan Holmes for their
+  thought-provoking insights.
+
+  Finally, I would like to thank my friends and family for their love and support.
+  In particular, my parents Jade and John Morton for their drive and care early
+  on distilling my love in engineering, mathematics and science.  Rachael Morton
+  for being a loveable sister and an angel on my shoulder.  And Juer
+  Song, who is my pillar, my pillow and my greatest companion.
+
+  Chapter 1, in full, is a reprint of the material as it appears in
+  ``Methods for phylogenetic analysis of microbiome data''
+  Alex D. Washburne, James T. Morton, Jon Sanders, Daniel McDonald,
+  Qiyun Zhu, Angela M. Oliverio, Rob Knight  \emph{Nature Microbiology} 3, 2018. The dissertation author was the primary investigator and co-first author of this paper.
+
+  Chapter 2, in full, is a reprint of the material as it appears in
+  ``Uncovering the Horseshoe Effect in Microbial Analyses''
+  James T. Morton, Liam Toran, Anna Edlund, Jessica L. Metcalf,
+  Christian Lauber, Rob Knight \emph{mSystems}, 2, 2017.  The dissertation author was the primary investigator and first author of this paper.
+
+  Chapter 3, in full, is a reprint of the material as it appears in
+  ``Balance Trees Reveal Microbial Niche Differentiation''
+  James T. Morton, Jon Sanders, Robert A. Quinn, Daniel McDonald, Antonio Gonzalez,
+  Yoshiki Vázquez-Baeza, Jose A. Navas-Molina, Se Jin Song, Jessica L. Metcalf,
+  Embriette R. Hyde, Manuel Lladser, Pieter C. Dorrestein, Rob Knight
+  \emph{mSystems}, 2, 2017.  The dissertation author was the primary investigator and first author of this paper.
+
+  Chapter 4 has been submitted for publication of the material as it may appear in
+  Nature Biotechnology, 2019 ``Establishing microbial measurement standards with reference frames''
+  James T. Morton,  Clarisse Marotz, Justin Silverman, Alex Washburne, Livia S. Zaramela,
+  Anna Edlund, Karsten Zengler, Rob Knight
+
+
+\end{acknowledgements}
+
+
+%% VITA
+%
+%  A brief vita is required in a doctoral thesis. See the OGS
+%  Formatting Manual for more information.
+%
+\begin{vitapage}
+\begin{vita}
+
+  \item[2014] B.~S. in Computer Science \emph{cum laude}, Miami University, OH
+  \item[2014] B.~S. in Mathematics and Statistics \emph{cum laude}, Miami University, OH
+  \item[2014] B.~S. in Electrical Engineering \emph{cum laude}, Miami University, OH
+  \item[2014] B.~S. in Engineering Physics \emph{cum laude}, Miami University, OH
+  \item[2018] Ph.~D. in Computer Science, University of California, San Diego
+\end{vita}
+\begin{publications}
+    \item \textsl{Author names marked with $\dagger$ indicate shared first co-authorship}.
+
+    \item $\dagger$Alex D. Washburne, \textbf{$\dagger$James T. Morton}, Jon Sanders, Daniel McDonald, Qiyun Zhu, Angela M. Oliverio, Rob Knight  ``Methods for phylogenetic analysis of microbiome data'' \emph{Nature Microbiology} 3, 2018
+
+    \item  \textbf{James T. Morton}, Liam Toran, Anna Edlund, Jessica L. Metcalf, Christian Lauber, Rob Knight ``Uncovering the Horseshoe Effect in Microbial Analyses'' \emph{mSystems}, 2, 2017
+
+    \item \textbf{James T. Morton}, Jon Sanders, Robert A. Quinn, Daniel McDonald, Antonio Gonzalez, Yoshiki Vázquez-Baeza, Jose A. Navas-Molina, Se Jin Song, Jessica L. Metcalf, Embriette R. Hyde, Manuel Lladser, Pieter C. Dorrestein, Rob Knight ``Balance Trees Reveal Microbial Niche Differentiation'' \emph{mSystems}, 2, 2017
+
+    \textsl{The following publications were not included as part of this dissertation, but were also significant byproducts of my doctoral training.}
+\item  Stefan O Reber, Philip H  Siebler, Nina C  Donner, \textbf{James T Morton}, David G  Smith, Jared M  Kopelman, Kenneth R  Lowe, Kristen J  Wheeler, James H  Fox, James E  Hassell,  ``Immunization with a heat-killed preparation of the environmental bacterium Mycobacterium vaccae promotes stress resilience in mice'' \emph{Proceedings of the National Academy of Sciences}, 113, 2016
+
+    \item  Jack A Gilbert, Robert A  Quinn, Justine  Debelius, Zhenjiang Z  Xu, James  Morton, Neha  Garg, Janet K  Jansson, Pieter C  Dorrestein, Rob  Knight,  ``Microbiome-wide association studies link dynamic microbial consortia to disease'' \emph{Nature}, 535, 2016
+
+    \item  Yoshiki Vázquez-Baeza, Antonio  Gonzalez, Larry  Smarr, Daniel  McDonald, \textbf{James T Morton}, Jose A  Navas-Molina, Rob  Knight,  ``Bringing the dynamic microbiome to life with animations'' \emph{Cell host \& microbe}, 21, 2017
+
+
+    \item  Albert Barberán, Robert R  Dunn, Brian J  Reich, Krishna  Pacifici, Eric B  Laber, Holly L  Menninger, \textbf{James T Morton}, Jessica B  Henley, Jonathan W  Leff, Shelly L  Miller,  ``The ecology of microscopic life in household dust'' \emph{Proc. R. Soc. B}, 282, 2015
+
+    \item  Erin M Hill‐Burns, Justine W  Debelius, \textbf{James T Morton}, William T  Wissemann, Matthew R  Lewis, Zachary D  Wallen, Shyamal D  Peddada, Stewart A  Factor, Eric  Molho, Cyrus P  Zabetian,  ``Parkinson's disease and Parkinson's disease medications have distinct signatures of the gut microbiome'' \emph{Movement disorders}, 32, 2017
+
+
+    \item  Amnon Amir, Daniel  McDonald, Jose A  Navas-Molina, Justine  Debelius, \textbf{James T Morton}, Embriette  Hyde, Adam  Robbins-Pianka, Rob  Knight,  ``Correcting for microbial blooms in fecal samples during room-temperature shipping'' \emph{MSystems}, 2, 2017
+
+    \item  Amnon Amir, Daniel  McDonald, Jose A  Navas-Molina, Evguenia  Kopylova, \textbf{James T Morton}, Zhenjiang Zech  Xu, Eric P  Kightley, Luke R  Thompson, Embriette R  Hyde, Antonio  Gonzalez,  ``Deblur rapidly resolves single-nucleotide community sequence patterns'' \emph{MSystems}, 2, 2017
+
+    \item  Alison Vrbanac, Justine W  Debelius, Lingjing  Jiang, \textbf{James T Morton}, Pieter  Dorrestein, Rob  Knight,  ``An Elegan (t) Screen for Drug-Microbe Interactions'' \emph{Cell host \& microbe}, 21, 2017
+
+    \item  Sian MJ Hemmings, Stefanie  Malan-Müller, Leigh L  van den Heuvel, Brittany A  Demmitt, Maggie A  Stanislawski, David G  Smith, Adam D  Bohr, Christopher E  Stamper, Embriette R  Hyde, \textbf{James T Morton},  ``The microbiome in posttraumatic stress disorder and trauma-exposed controls: an exploratory study'' \emph{Psychosomatic medicine}, 79, 2017
+
+    \item  Laura-Isobel McCall, \textbf{James T Morton}, Jean A  Bernatchez, Jair Lage  de Siqueira-Neto, Rob  Knight, Pieter C  Dorrestein, James H  McKerrow,  ``Mass spectrometry-based chemical cartography of a cardiac parasitic infection'' \emph{Analytical chemistry}, 89, 2017
+
+    \item  Yoshiki Vázquez-Baeza, Chris  Callewaert, Justine  Debelius, Embriette  Hyde, Clarisse  Marotz, \textbf{James T Morton}, Austin  Swafford, Alison  Vrbanac, Pieter C  Dorrestein, Rob  Knight,  ``Impacts of the human gut microbiome on therapeutics'' \emph{Annual review of pharmacology and toxicology}, 58, 2018
+
+    \item  Jessica L Metcalf, Se Jin  Song, \textbf{James T Morton}, Sophie  Weiss, Andaine  Seguin-Orlando, Frédéric  Joly, Claudia  Feh, Pierre  Taberlet, Eric  Coissac, Amnon  Amir,  ``Evaluating the impact of domestication and captivity on the horse gut microbiome'' \emph{Scientific reports}, 7, 2017
+
+    \item  Lingjing Jiang, Amnon  Amir, \textbf{James T Morton}, Ruth  Heller, Ery  Arias-Castro, Rob  Knight,  ``Discrete false-discovery rate improves identification of differentially abundant microbes'' \emph{MSystems}, 2, 2017
+
+    \item  Clifford A Kapono, \textbf{James T Morton}, Amina  Bouslimani, Alexey V  Melnik, Kayla  Orlinsky, Tal Luzzatto  Knaan, Neha  Garg, Yoshiki  Vázquez-Baeza, Ivan  Protsyuk, Stefan  Janssen,  ``Creating a 3D microbial and chemical snapshot of a human habitat'' \emph{Scientific reports}, 8, 2018
+
+    \item  Daniel McDonald, Embriette  Hyde, Justine W  Debelius, \textbf{James T Morton}, Antonio  Gonzalez, Gail  Ackermann, Alexander A  Aksenov, Bahar  Behsaz, Caitriona  Brennan, Yingfeng  Chen,  ``American Gut: an Open Platform for Citizen Science Microbiome Research'' \emph{mSystems}, 3, 2018
+
+
+    \item  Robert A Quinn, William  Comstock, Tianyu  Zhang, \textbf{James T Morton}, Ricardo  da Silva, Alda  Tran, Alexander  Aksenov, Louis-Felix  Nothias, Daniel  Wangpraseurt, Alexey V  Melnik,  ``Niche partitioning of a pathogenic microbiome driven by chemical gradients'' \emph{Science advances}, 4, 2018
+\end{publications}
+\end{vitapage}
+
+
+%% ABSTRACT
+%
+%  Doctoral dissertation abstracts should not exceed 350 words.
+%   The abstract may continue to a second page if necessary.
+%
+\begin{abstract}
+Microbiomes make up the vast majority of life on Earth, and we are just beginning to understand how to
+study them using high-throughput omics.  However, analysis of microbial populations is complicated by
+numerous statistical challenges.  We first outline these challenges in the context of phylogenetically
+aware methods, then focus on two concepts: the horseshoe effect and compositionality.\\[5 mm]
+%
+The horseshoe effect is a phenomenon that can lead to horseshoe patterns appearing in low dimensional
+representations of high dimensional data.  For multiple decades, this pattern confounded ecologists
+when studying populations across multiple environmental conditions.  Here, we show that the
+horseshoe effect arises from distance saturation, and can indicative of microbial population
+displacement. This phenomenon is illustrated across a soil study and a
+decomposition study.\\[5 mm]
+%
+In the second part of the thesis, we will discuss identifiability due to representative sampling,
+also known as compositionality. Statistical laws have shown that it's possible to obtain
+unbiased estimators for population proportions from representative samples.
+However, based on representative samples alone, it is not possible to determine which species abundances
+have grown or declined, since there is an infinite number of outcomes that can explain
+the same change in proportions. In the biological sciences, this problem is also known as the
+differential abundance problem, which is critical for determining which microbes have been altered across
+experimental outcomes. Here, we show that in order to estimate which species have been altered,
+the total population size needs to be estimated.\\[5 mm]
+%
+We present two workarounds to this problem that ultimately negating the need to estimate total
+population size. The first solution is using ratios, analogous to concentrations in chemistry.
+We will showcase the usefulness of this technique on a soils study and a cystic fibrosis study.
+The second solution is using ranks as a proxy to feature importances. Rather than attempting to
+compute absolute change, we can compute relative change, ultimately ranking which microbes have
+increased or decreased the most across different experimental conditions.
+We show how these ranks can be computed using multinomial regression and can
+facilitate reproducible findings in the context of oral microbial communities and atopic dermatitis.
+\end{abstract}
+
+
+\end{frontmatter}

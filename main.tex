@@ -144,8 +144,8 @@
 
 %% INDEX
 %   Uncomment the following two lines to create an index:
-% \usepackage{makeidx}
-% \makeindex
+\usepackage{makeidx}
+\makeindex
 %   You will need to uncomment the \printindex line near the
 %   bibliography to display the index.  Use the command
 % \index{keyword}
@@ -197,6 +197,15 @@
 
 \usepackage{amsmath,amsfonts,amsthm,bm}
 \usepackage{gensymb}
+
+
+
+\usepackage{verbatim}
+
+\usepackage[toc,nopostdot,style=alttree]{glossaries}
+\glssetwidest{PERMANOVAX}% widest name
+\makeglossaries
+\include{abbreviations}
 \begin{document}
 
 %% FRONT MATTER
@@ -205,7 +214,6 @@
 %  This includes the title, degree, dedication, vita, abstract, etc..
 %  Modify the file template_frontmatter.tex to change these pages.
 \include{frontmatter}
-
 
 
 %% DISSERTATION
@@ -223,32 +231,38 @@
 
 \chapter{Methods for phylogenetic analysis of microbiome data}
 \include{ch1_phylogeny_review}
-%% \chapter{Uncovering the horseshoe effect in microbial analyses}
-%% \include{ch2_horseshoe}
-%% \chapter{Balance trees reveal microbial niche differentiation}
-%% \include{ch3_balances}
-%% \chapter{Establishing microbial measurement standards with reference frames}
-%% \include{ch4_ranks}
-
-
-%% APPENDIX
-
+\chapter{Uncovering the horseshoe effect in microbial analyses}
+\include{ch2_horseshoe}
+\chapter{Balance trees reveal microbial niche differentiation}
+\include{ch3_balances}
+\chapter{Establishing microbial measurement standards with reference frames}
+\include{ch4_ranks}
+%
+%
+%%% APPENDIX
 \appendix
+\chapter{Supplemental material for Chapter 2}
 \include{appendixa}
+
+\chapter{Supplemental material for Chapter 3}
 \include{appendixb}
 
+\chapter{A brief overview of Aitchison Geometry}
+\include{appendixc}
+
 %% END MATTER
-% \printindex %% Uncomment to display the index
+\printindex %% Uncomment to display the index
 % \nocite{}  %% Put any references that you want to include in the bib
 %               but haven't cited in the braces.
 %\setlength{\bibleftmargin}{0.25in}  % indent each item
 %\setlength{\bibindent}{-\bibleftmargin}  % unindent the first line
 %\def\baselinestretch{1.0}  % force single spacing
 %\setlength{\bibitemsep}{0.16in}  % add extra space between items
+\bibliographystyle{unsrt}
 \bibliography{template}  %% This looks for the bibliography in template.bib
 %                          which should be formatted as a bibtex file.
 %                          and needs to be separately compiled into a bbl file.
-\bibliographystyle{plain}
+
 
 \end{document}
 

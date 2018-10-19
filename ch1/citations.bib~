@@ -1,0 +1,21 @@
+@article{human2012structure,
+author = {Consortium, Human Microbiome Project and Others},
+journal = {Nature},
+number = {7402},
+pages = {207--214},
+publisher = {Nature Research},
+title = {{Structure, function and diversity of the healthy human microbiome}},
+volume = {486},
+year = {2012}
+}
+
+@article{revell2012phytools,
+  title={phytools: an R package for phylogenetic comparative biology (and other things)},
+  author={Revell, Liam J},
+  journal={Methods in Ecology and Evolution},
+  volume={3},
+  number={2},
+  pages={217--223},
+  year={2012},
+  publisher={Wiley Online Library}
+}
